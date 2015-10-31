@@ -6037,22 +6037,23 @@ Source: http://www.mouser.com/ds/2/392/products_18-2245.pdf</description>
 <part name="GND1" library="supply1" deviceset="GND" device=""/>
 <part name="GND2" library="supply1" deviceset="GND" device=""/>
 <part name="C1" library="resistor" deviceset="C-EU" device="C0805"/>
-<part name="C2" library="resistor" deviceset="C-EU" device="C0805"/>
-<part name="C3" library="resistor" deviceset="C-EU" device="C0805"/>
+<part name="C2" library="resistor" deviceset="C-EU" device="C0805" value="10nF"/>
+<part name="C3" library="resistor" deviceset="C-EU" device="C0805" value="10nF"/>
 <part name="C4" library="resistor" deviceset="C-EU" device="C0805"/>
-<part name="C5" library="resistor" deviceset="C-EU" device="C0805"/>
-<part name="C6" library="resistor" deviceset="C-EU" device="C0805"/>
+<part name="C5" library="resistor" deviceset="C-EU" device="C0805" value="0.47uF"/>
+<part name="C6" library="resistor" deviceset="C-EU" device="C0805" value="0.47uF"/>
 <part name="C7" library="resistor" deviceset="C-EU" device="C0805"/>
 <part name="JP1" library="pinhead" deviceset="PINHD-1X2" device="/90"/>
 <part name="C8" library="resistor" deviceset="C-EU" device="C0805"/>
 <part name="GND3" library="supply1" deviceset="GND" device=""/>
-<part name="C9" library="resistor" deviceset="C-EU" device="C0805"/>
+<part name="C9" library="resistor" deviceset="C-EU" device="C0805" value="4.7uF"/>
 <part name="R1" library="resistor" deviceset="R-EU_" device="R0805"/>
 <part name="C10" library="resistor" deviceset="C-EU" device="C0805"/>
 <part name="JP2" library="pinhead" deviceset="PINHD-1X2" device="/90"/>
-<part name="R2" library="resistor" deviceset="R-EU_" device="R0805"/>
-<part name="R3" library="resistor" deviceset="R-EU_" device="R0805"/>
+<part name="R2" library="resistor" deviceset="R-EU_" device="R0805" value="5K"/>
+<part name="R3" library="resistor" deviceset="R-EU_" device="R0805" value="188R"/>
 <part name="GND4" library="supply1" deviceset="GND" device=""/>
+<part name="R4" library="resistor" deviceset="R-EU_" device="R0805" value="10k"/>
 </parts>
 <sheets>
 <sheet>
@@ -6061,7 +6062,7 @@ Source: http://www.mouser.com/ds/2/392/products_18-2245.pdf</description>
 </plain>
 <instances>
 <instance part="U$1" gate="G$1" x="78.74" y="50.8"/>
-<instance part="GND1" gate="1" x="48.26" y="20.32"/>
+<instance part="GND1" gate="1" x="55.88" y="15.24"/>
 <instance part="GND2" gate="1" x="71.12" y="93.98" rot="R180"/>
 <instance part="C1" gate="G$1" x="48.26" y="48.26" rot="R90"/>
 <instance part="C2" gate="G$1" x="48.26" y="63.5" rot="R90"/>
@@ -6080,6 +6081,7 @@ Source: http://www.mouser.com/ds/2/392/products_18-2245.pdf</description>
 <instance part="R2" gate="G$1" x="106.68" y="33.02" rot="R180"/>
 <instance part="R3" gate="G$1" x="116.84" y="38.1" rot="R270"/>
 <instance part="GND4" gate="1" x="116.84" y="20.32"/>
+<instance part="R4" gate="G$1" x="114.3" y="33.02" rot="R270"/>
 </instances>
 <busses>
 </busses>
@@ -6088,8 +6090,15 @@ Source: http://www.mouser.com/ds/2/392/products_18-2245.pdf</description>
 <segment>
 <pinref part="U$1" gate="G$1" pin="AD"/>
 <pinref part="GND1" gate="1" pin="GND"/>
-<wire x1="58.42" y1="33.02" x2="48.26" y2="33.02" width="0.1524" layer="91"/>
-<wire x1="48.26" y1="33.02" x2="48.26" y2="22.86" width="0.1524" layer="91"/>
+<wire x1="58.42" y1="33.02" x2="55.88" y2="33.02" width="0.1524" layer="91"/>
+<wire x1="55.88" y1="33.02" x2="55.88" y2="20.32" width="0.1524" layer="91"/>
+<pinref part="U$1" gate="G$1" pin="EN2"/>
+<wire x1="55.88" y1="20.32" x2="55.88" y2="17.78" width="0.1524" layer="91"/>
+<wire x1="83.82" y1="20.32" x2="71.12" y2="20.32" width="0.1524" layer="91"/>
+<junction x="55.88" y="20.32"/>
+<pinref part="U$1" gate="G$1" pin="EN1"/>
+<junction x="71.12" y="20.32"/>
+<wire x1="71.12" y1="20.32" x2="55.88" y2="20.32" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="U$1" gate="G$1" pin="PGND1"/>
@@ -6118,7 +6127,11 @@ Source: http://www.mouser.com/ds/2/392/products_18-2245.pdf</description>
 <segment>
 <pinref part="GND4" gate="1" pin="GND"/>
 <pinref part="R3" gate="G$1" pin="2"/>
-<wire x1="116.84" y1="22.86" x2="116.84" y2="33.02" width="0.1524" layer="91"/>
+<wire x1="116.84" y1="22.86" x2="116.84" y2="27.94" width="0.1524" layer="91"/>
+<pinref part="R4" gate="G$1" pin="2"/>
+<wire x1="116.84" y1="27.94" x2="116.84" y2="33.02" width="0.1524" layer="91"/>
+<wire x1="114.3" y1="27.94" x2="116.84" y2="27.94" width="0.1524" layer="91"/>
+<junction x="116.84" y="27.94"/>
 </segment>
 </net>
 <net name="N$1" class="0">
@@ -6253,6 +6266,13 @@ Source: http://www.mouser.com/ds/2/392/products_18-2245.pdf</description>
 <pinref part="R2" gate="G$1" pin="2"/>
 <pinref part="U$1" gate="G$1" pin="ILIM"/>
 <wire x1="101.6" y1="33.02" x2="99.06" y2="33.02" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$6" class="0">
+<segment>
+<pinref part="R4" gate="G$1" pin="1"/>
+<pinref part="U$1" gate="G$1" pin="TS/CTRL"/>
+<wire x1="114.3" y1="38.1" x2="99.06" y2="38.1" width="0.1524" layer="91"/>
 </segment>
 </net>
 </nets>
